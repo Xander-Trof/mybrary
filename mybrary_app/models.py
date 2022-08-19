@@ -20,9 +20,9 @@ class FutureBooksManager(Manager):
 
 class Books(models.Model):
     title = models.CharField(max_length=300)
-    author = models.ForeignKey('Authors', on_delete=models.SET_NULL)
+    author = models.ForeignKey('Authors', on_delete=models.PROTECT)
     category = models.ManyToManyField('Categories')
-    rating = models.ForeignKey('Rates', on_delete=models.SET_NULL)
+    rating = models.ForeignKey('Rates', on_delete=models.PROTECT)
     read = models.BooleanField()
 
     objects = Manager()
@@ -35,7 +35,7 @@ class Books(models.Model):
             self.save()
 
     def __str__(self):
-        return self.id
+        return str(self.title)
 
 
 class Authors(models.Model):
@@ -63,4 +63,3 @@ class Rates(models.Model):
 
     def __str__(self):
         return str(self.__all[self.rate])
-

@@ -14,13 +14,23 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+from django.conf import settings
+
+import mybrary_app
+from mybrary_app import urls
 from mybrary_app.views import index
 
 urlpatterns = [
     path('admin/', admin.site.urls),
 
-    #Custom
+    path('books/', include(('mybrary_app.urls', 'mybrary_app'), namespace='books')),
 
     path('$/', index, name='index'),
 ]
+
+if settings.DEBUG:
+    import debug_toolbar
+    urlpatterns += [
+        path('__debug__/', include(debug_toolbar.urls)),
+    ]
