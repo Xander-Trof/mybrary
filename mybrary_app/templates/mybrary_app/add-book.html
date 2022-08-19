@@ -1,0 +1,13 @@
+{% extends 'mybrary_app/_base.html' %}
+
+{% block content %}
+
+    <form action="{% url 'books:add_book' %}" method="POST">
+    {% csrf_token %}
+
+    <h2>Add new book</h2>
+    {{ book_form.as_p }}
+
+    <input type="submit" value="add" />
+    </form>
+{% endblock %}
