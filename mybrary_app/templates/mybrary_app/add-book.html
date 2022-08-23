@@ -2,12 +2,19 @@
 
 {% block content %}
 
+
     <form action="{% url 'books:add_book' %}" method="POST">
     {% csrf_token %}
 
-    <h2>Add new book</h2>
+    <h2>book</h2>
+    {{ author_form.as_p }}
     {{ book_form.as_p }}
 
     <input type="submit" value="add" />
     </form>
+
+    <form action="http://127.0.0.1:8000/$/">
+        <button>Back to main</button>
+    </form>
+
 {% endblock %}
