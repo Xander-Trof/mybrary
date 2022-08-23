@@ -37,6 +37,9 @@ class Books(models.Model):
     def __str__(self):
         return str(self.title)
 
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+
 
 class Authors(models.Model):
     full_name = models.CharField(max_length=50)
