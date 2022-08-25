@@ -6,7 +6,7 @@ from django.core.management import call_command
 from django.db import migrations
 
 FIXTURE = 'initial'
-APP_LABEL = 'mybrary_app'
+APP_LABEL = 'book_app'
 
 
 def load_fixture(apps, schema_editor):
