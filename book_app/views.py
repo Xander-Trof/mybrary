@@ -2,9 +2,11 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.urls import reverse
 from django.db import transaction
+from django.contrib.auth.context_processors import auth
+from django.template import RequestContext
 
-from mybrary_app.models import Books, Authors
-from mybrary_app.forms import BooksForm, AuthorForm
+from book_app.models import Books, Authors
+from book_app.forms import BooksForm, AuthorForm
 
 # Create your views here.
 
@@ -12,7 +14,7 @@ from mybrary_app.forms import BooksForm, AuthorForm
 def index(request):
     if request.method == 'GET':
         books = Books.objects.all()
-        return render(request, 'mybrary_app/index.html', {'books': books})
+        return render(request, 'book_app/index.html', {'books': books})
 
     return HttpResponse(status=405)
 
@@ -23,7 +25,7 @@ def add_book(request):
             'book_form': BooksForm(),
             'author_form': AuthorForm(),
         }
-        return render(request, 'mybrary_app/add-book.html', c)
+        return render(request, 'book_app/add-book.html', c)
 
     elif request.method == 'POST':
         book_form = BooksForm(request.POST)

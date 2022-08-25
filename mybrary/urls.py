@@ -17,16 +17,15 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 
-import mybrary_app
-from mybrary_app import urls
-from mybrary_app.views import index
+from book_app.views import index
 
 urlpatterns = [
     path('admin/', admin.site.urls),
 
-    path('books/', include(('mybrary_app.urls', 'mybrary_app'), namespace='books')),
+    path('books/', include(('book_app.urls', 'book_app'), namespace='books')),
+    path('auth/', include(('book_auth_app.urls', 'book_auth_app'), namespace='auth')),
 
-    path('$/', index, name='index'),
+    path('', index, name='index'),
 ]
 
 if settings.DEBUG:

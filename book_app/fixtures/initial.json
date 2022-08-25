@@ -1,6 +1,6 @@
 [
   {
-    "model": "mybrary_app.Books",
+    "model": "book_app.Books",
     "pk": 1,
     "fields": {
       "title": "Хребты безумия",
@@ -11,7 +11,7 @@
     }
   },
   {
-    "model": "mybrary_app.Books",
+    "model": "book_app.Books",
     "pk": 2,
     "fields": {
       "title": "Золото бунта",
@@ -22,56 +22,56 @@
     }
   },
   {
-    "model": "mybrary_app.Authors",
+    "model": "book_app.Authors",
     "pk": 1,
     "fields": {
       "full_name": "Говард Филип Лавкрафт"
     }
   },
   {
-    "model": "mybrary_app.Authors",
+    "model": "book_app.Authors",
     "pk": 2,
     "fields": {
       "full_name": "Алексей Иванов"
     }
   },
   {
-    "model": "mybrary_app.Categories",
+    "model": "book_app.Categories",
     "pk": 1,
     "fields": {
       "category": "хоррор"
     }
   },
   {
-    "model": "mybrary_app.Categories",
+    "model": "book_app.Categories",
     "pk": 2,
     "fields": {
       "category": "историческое"
     }
   },
   {
-    "model": "mybrary_app.Categories",
+    "model": "book_app.Categories",
     "pk": 3,
     "fields": {
       "category": "приключение"
     }
   },
   {
-    "model": "mybrary_app.Rates",
+    "model": "book_app.Rates",
     "pk": 1,
     "fields": {
       "rate": "B"
     }
   },
   {
-    "model": "mybrary_app.Rates",
+    "model": "book_app.Rates",
     "pk": 2,
     "fields": {
       "rate": "G"
     }
   },
   {
-    "model": "mybrary_app.Rates",
+    "model": "book_app.Rates",
     "pk": 3,
     "fields": {
       "rate": "E"

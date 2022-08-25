@@ -1,5 +1,5 @@
 from django import forms
-from mybrary_app.models import Books, Authors
+from book_app.models import Books, Authors
 
 
 class AuthorForm(forms.ModelForm):

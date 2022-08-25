@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'debug_toolbar',
 
     # my apps
-    'mybrary_app',
+    'book_app',
+    'book_auth_app'
 ]
 
 MIDDLEWARE = [
@@ -109,7 +110,13 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTH_USER_MODEL = 'book_auth_app.CustomUser'
+LOGIN_URL = '/auth/login'
+LOGIN_REDIRECT_URL = '/books/add-book/'
 
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+]
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 

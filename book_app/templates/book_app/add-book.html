@@ -1,4 +1,4 @@
-{% extends 'mybrary_app/_base.html' %}
+{% extends 'book_app/_base.html' %}
 
 {% block content %}
 
@@ -10,11 +10,48 @@
     {{ author_form.as_p }}
     {{ book_form.as_p }}
 
-    <input type="submit" value="add" />
+
     </form>
 
-    <form action="http://127.0.0.1:8000/$/">
+    <form action="http://127.0.0.1:8000/">
         <button>Back to main</button>
     </form>
+
+    <p>{{ user.is_unonymous }}</p>
+
+    {% if user.is_unonymous %}
+
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            register</button>
+
+<!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+
+                    <div class="modal-body">
+                        <p>You need to log in first</p>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <a href="http://127.0.0.1:8000/auth/login/" type="button" class="btn btn-primary">Go log in page</a>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    {% else %}
+
+        <input type="submit" value="add" />
+
+    {% endif %}
 
 {% endblock %}
