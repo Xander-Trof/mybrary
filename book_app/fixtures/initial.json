@@ -1,27 +1,5 @@
 [
   {
-    "model": "book_app.Books",
-    "pk": 1,
-    "fields": {
-      "title": "Хребты безумия",
-      "author": 1,
-      "category": [1, 3],
-      "rating": 3,
-      "read": true
-    }
-  },
-  {
-    "model": "book_app.Books",
-    "pk": 2,
-    "fields": {
-      "title": "Золото бунта",
-      "author": 2,
-      "category": [2, 3],
-      "rating": 3,
-      "read": false
-    }
-  },
-  {
     "model": "book_app.Authors",
     "pk": 1,
     "fields": {

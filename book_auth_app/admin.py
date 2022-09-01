@@ -8,12 +8,8 @@ from book_auth_app.models import CustomUser
 
 class CustomAdminModel(UserAdmin):
     fieldsets = UserAdmin.fieldsets + (
-        ('Books', {'fields': (
-        #     'title',
-        #     'author',
-        #     'category',
-        #     'rating',
-        #     'read',
+        ('Other', {'fields': (
+            'our_note',
         )}),
     )
     list_display = (
@@ -21,11 +17,9 @@ class CustomAdminModel(UserAdmin):
         'username',
         'first_name',
         'last_name',
-        'books',
     )
     list_editable = ()
     list_filter = (
-        # 'book__title',
     )
     search_fields = (
         'first_name',

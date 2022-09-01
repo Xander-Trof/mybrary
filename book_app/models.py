@@ -1,33 +1,22 @@
 from django.db import models
-from django.db.models import Manager
+
+from django.conf import settings
+from book_auth_app.models import CustomUser
 
 # Create your models here.
 
 
-class ReadBooksManager(Manager):
-    def get_queryset(self, **kwargs):
-        return super().get_queryset().filter(
-            read=True
-        )
-
-
-class FutureBooksManager(Manager):
-    def get_queryset(self, **kwargs):
-        return super().get_queryset().filter(
-            read=False
-        )
-
-
 class Books(models.Model):
     title = models.CharField(max_length=300)
+
+    # Linking
     author = models.ForeignKey('Authors', on_delete=models.PROTECT)
     category = models.ManyToManyField('Categories')
     rating = models.ForeignKey('Rates', on_delete=models.PROTECT)
-    read = models.BooleanField()
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.PROTECT)
 
-    objects = Manager()
-    read_manager = ReadBooksManager()
-    unread_manager = FutureBooksManager()
+    # Utils
+    read = models.BooleanField()
 
     def mark_read(self, commit=True):
         self.read = True
@@ -43,7 +32,6 @@ class Books(models.Model):
 
 class Authors(models.Model):
     full_name = models.CharField(max_length=50)
-    # book = models.ForeignKey('Books', on_delete=models.SET_NULL)
 
     def __str__(self):
         return str(self.full_name)

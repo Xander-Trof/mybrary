@@ -7,10 +7,4 @@ from django.contrib.auth.models import AbstractUser
 
 
 class CustomUser(AbstractUser):
-    books = models.ForeignKey(
-        'book_app.Books',
-        null=True,
-        default=None,
-        blank=True,
-        on_delete=models.CASCADE
-    )
+    our_note = models.CharField(max_length=140, blank=True)

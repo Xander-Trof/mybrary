@@ -19,7 +19,7 @@ def load_fixture(apps, schema_editor):
 def unload_fixture(apps, schema_editor):
     """ Brutally deleting all entries for this model. """
 
-    classes = ['Books', 'Authors', 'Categories', 'Rates']
+    classes = ['Authors', 'Categories', 'Rates']
 
     for klass in classes:
         model_class = apps.get_model(APP_LABEL, klass)

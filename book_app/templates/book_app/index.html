@@ -1,7 +1,14 @@
 {% extends 'book_app/_base.html' %}
 
 {% block content %}
+    {% if user.is_anonymous %}
+        <h2>Your books</h2>
+        <p>Want to see your own books? You need to login first</p>
 
+        <form action="http://127.0.0.1:8000/auth/login">
+            <button>log in</button>
+        </form>
+    {% else %}
     <h2>Your books</h2>
 
     <ul>
@@ -37,6 +44,7 @@
         {% endif %}
     {% endfor %}
     </ul>
+    {% endif %}
 
     <form action="http://127.0.0.1:8000/books/add-book/">
         <button>Добавить</button>
