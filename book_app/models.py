@@ -1,6 +1,7 @@
 from django.db import models
 
 from django.conf import settings
+from taggit.managers import TaggableManager
 from book_auth_app.models import CustomUser
 
 # Create your models here.
@@ -11,9 +12,9 @@ class Books(models.Model):
 
     # Linking
     author = models.ForeignKey('Authors', on_delete=models.PROTECT)
-    category = models.ManyToManyField('Categories')
     rating = models.ForeignKey('Rates', on_delete=models.PROTECT)
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.PROTECT)
+    tags = TaggableManager()
 
     # Utils
     read = models.BooleanField()

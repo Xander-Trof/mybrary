@@ -41,6 +41,9 @@ INSTALLED_APPS = [
     # debug
     'debug_toolbar',
 
+    # taggit
+    'taggit',
+
     # my apps
     'book_app',
     'book_auth_app'
@@ -140,3 +143,5 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+TAGGIT_CASE_INSENSITIVE = True
